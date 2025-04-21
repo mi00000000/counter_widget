@@ -66,7 +66,7 @@
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
       titleLine.innerHTML = `<span title="number">${title}</span><span class="label">まで</span>`;
-      countdown.innerHTML = `span class="label">あと</span><span class="number">${days}</span><span class="label">日</span>`;
+      countdown.innerHTML = `<span class="label">あと</span><span class="number">${days}</span><span class="label">日</span>`;
     }
 
     setInterval(updateCountdown, 1000);
