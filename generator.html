@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カウントダウンURL作成</title>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #fef9f4;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 8px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    input {
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #ff9aa2;
+      color: white;
+      cursor: pointer;
+    }
+
+    #output {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    code {
+      background: #fff;
+      padding: 4px 8px;
+      display: inline-block;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎀 カウントダウンURLを作ろう</h1>
+  <input type="date" id="dateInput" />
+  <input type="text" id="titleInput" placeholder="タイトル（例：試験まで）" />
+  <br />
+  <button onclick="generateURL()">URLを作る</button>
+  <div id="output"></div>
+
+  <script>
+    function generateURL() {
+      const date = document.getElementById("dateInput").value;
+      const title = encodeURIComponent(document.getElementById("titleInput").value);
+      const baseUrl = "https://your-widget.vercel.app"; // ← あなたのURLに置き換えてね！
+      if (!date) {
+        document.getElementById("output").innerHTML = "📅 日付を入力してね！";
+        return;
+      }
+      const fullUrl = `${baseUrl}?date=${date}&title=${title}`;
+      document.getElementById("output").innerHTML = `
+        <p>⬇️ このURLをNotionに貼ってね！</p>
+        <code>${fullUrl}</code>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カウントダウン</title>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background-color: #fef9f4;
+      color: #555;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    #countdown {
+      font-size: 40px;
+      margin-top: 20px;
+      color: #ff6f61;
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">🎯 ゴールまであと…</h1>
+  <div id="countdown">読み込み中...</div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateParam = urlParams.get("date");
+    const titleParam = urlParams.get("title");
+
+    const targetDate = dateParam ? new Date(dateParam + "T00:00:00") : new Date("2025-12-31T00:00:00");
+
+    const countdown = document.getElementById("countdown");
+    const title = document.getElementById("title");
+
+    if (titleParam) {
+      title.textContent = decodeURIComponent(titleParam);
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      countdown.textContent = `あと ${days}日`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
