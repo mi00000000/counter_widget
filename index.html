@@ -58,7 +58,7 @@
       const diff = targetDate - now;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-      titleLine.innerHTML = `<span class="label">${title}まで</span>`;
+      titleLine.innerHTML = `<span class="number">${title}</span><span class="label">まで</span>`;
       countdown.innerHTML = `<span class="number">${days}</span><span class="label">日間</span>`;
     }
 
