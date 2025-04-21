@@ -64,7 +64,7 @@
     function generateURL() {
       const date = document.getElementById("dateInput").value;
       const title = encodeURIComponent(document.getElementById("titleInput").value);
-      const baseUrl = "counter-widget-rouge.vercel.app"; // ← あなたのURLに置き換えてね！
+      const baseUrl = "https://counter-widget-rouge.vercel.app"; // ← あなたのURLに置き換えてね！
       if (!date) {
         document.getElementById("output").innerHTML = "📅 日付を入力してね！";
         return;
