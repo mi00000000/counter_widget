@@ -7,50 +7,59 @@
   <style>
     body {
       font-family: 'M PLUS Rounded 1c', sans-serif;
+      background-color: #f0fdf5;
       text-align: center;
+      color: #3e7d60;
       padding: 40px;
-      background-color: #fef9f4;
-      color: #333;
     }
-
+  
     h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+      font-size: 26px;
+      color: #4fa57e;
+      margin-bottom: 30px;
     }
-
+  
     input, button {
-      padding: 10px;
       font-size: 16px;
-      margin: 8px;
-      border: none;
-      border-radius: 8px;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px;
+      border: 1px solid #a4d5bb;
       outline: none;
     }
-
-    input {
-      border: 1px solid #ccc;
+  
+    input:focus {
+      border-color: #4fa57e;
     }
-
+  
     button {
-      background-color: #ff9aa2;
+      background-color: #4fa57e;
       color: white;
+      border: none;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-
+  
+    button:hover {
+      background-color: #3e7d60;
+    }
+  
     #output {
       margin-top: 30px;
+      color: #2e6047;
       font-size: 16px;
-      color: #333;
     }
-
+  
     code {
-      background: #fff;
-      padding: 4px 8px;
+      background: #e5f5eb;
+      padding: 6px 10px;
+      border-radius: 8px;
       display: inline-block;
       margin-top: 10px;
-      border-radius: 6px;
+      font-family: monospace;
     }
   </style>
+  
 </head>
 <body>
   <h1>🎀 カウントダウンURLを作ろう</h1>
