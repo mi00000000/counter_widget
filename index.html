@@ -6,30 +6,39 @@
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
   <style>
     body {
-      text-align: center;
       font-family: 'M PLUS Rounded 1c', sans-serif;
-      background-color: #fef9f4;
-      color: #555;
+      background-color: #f5fdf8; /* やわらかいミントグリーン背景 */
+      color: #333;
+      text-align: center;
       padding: 40px;
     }
-
+  
     h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      animation: glow 2s ease-in-out infinite;
+      font-size: 28px;
+      color: #3e7d60; /* アクセントグリーン */
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
     }
-
+  
     #countdown {
-      font-size: 40px;
+      font-size: 48px;
+      font-weight: bold;
+      color: #3e7d60; /* 同じアクセントカラーで統一感 */
       margin-top: 20px;
-      color: #ff6f61;
+      animation: floatText 3s ease-in-out infinite;
     }
-
-    @keyframes glow {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+  
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
   </style>
+  
 </head>
 <body>
   <h1 id="countdown">🎯 読み込み中…</h1>
@@ -48,7 +57,7 @@
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   
       const title = titleParam ? decodeURIComponent(titleParam) : "ゴール";
-      countdown.textContent = `🎯 ${title}まで あと ${days}日`;
+      countdown.textContent = `${title}まで あと ${days}日`;
     }
   
     setInterval(updateCountdown, 1000);
