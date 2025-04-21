@@ -19,6 +19,13 @@
       margin-bottom: 10px;
     }
 
+    .title {
+      color: #3e7d60; /* アクセントグリーン */
+      font-weight: bold;
+      font-size: 24px;
+      margin: 0 6px;
+    }
+
     #countdown {
       font-size: 36px;
       margin-top: 5px;
@@ -58,8 +65,8 @@
       const diff = targetDate - now;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-      titleLine.innerHTML = `<span class="number">${title}</span><span class="label">まで</span>`;
-      countdown.innerHTML = `<span class="number">${days}</span><span class="label">日間</span>`;
+      titleLine.innerHTML = `<span title="number">${title}</span><span class="label">まで</span>`;
+      countdown.innerHTML = `span class="label">あと</span><span class="number">${days}</span><span class="label">日</span>`;
     }
 
     setInterval(updateCountdown, 1000);
