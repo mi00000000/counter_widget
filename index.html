@@ -33,31 +33,28 @@
 </head>
 <body>
   <h1 id="title">🎯 ゴールまであと…</h1>
-  <div id="countdown">読み込み中...</div>
+  <h1 id="countdown">🎯 読み込み中…</h1>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const dateParam = urlParams.get("date");
     const titleParam = urlParams.get("title");
-
+  
     const targetDate = dateParam ? new Date(dateParam + "T00:00:00") : new Date("2025-12-31T00:00:00");
-
     const countdown = document.getElementById("countdown");
-    const title = document.getElementById("title");
-
-    if (titleParam) {
-      title.textContent = decodeURIComponent(titleParam);
-    }
-
+  
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      countdown.textContent = `あと ${days}日`;
+  
+      const title = titleParam ? decodeURIComponent(titleParam) : "ゴール";
+      countdown.textContent = `🎯 ${title}まで あと ${days}日`;
     }
-
+  
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
+  
 </body>
 </html>
