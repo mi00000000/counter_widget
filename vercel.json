@@ -1,23 +1,17 @@
 {
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "X-Frame-Options",
+            "value": "ALLOWALL"
+          }
+        ]
+      }
+    ],
     "rewrites": [
       { "source": "/generator.html", "destination": "/generator.html" }
     ]
   }
-
   
-{
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Frame-Options",
-          "value": ""
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    { "source": "/generator.html", "destination": "/generator.html" }
-  ]
-}
