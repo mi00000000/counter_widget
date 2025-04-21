@@ -47,6 +47,7 @@
 
     .label {
       color: var(--gray);
+      font-size: 25px;
     }
 
     .congrats {
@@ -80,7 +81,7 @@
 
       if (days <= 0) {
         titleLine.textContent = title;
-        countdown.innerHTML = `<div class="congrats">🎉 おめでとう！</div>`;
+        countdown.innerHTML = `<div class="congrats">おめでとう！</div>`;
       } else {
         titleLine.innerHTML = `${title}まで`;
         countdown.innerHTML = `<span class="label">あと</span><span class="number">${days}</span><span class="label">日</span>`;
