@@ -12,13 +12,13 @@
       color: #3e7d60;
       padding: 40px;
     }
-  
+
     h1 {
       font-size: 26px;
       color: #4fa57e;
       margin-bottom: 30px;
     }
-  
+
     input, button {
       font-size: 16px;
       padding: 10px;
@@ -27,11 +27,11 @@
       border: 1px solid #a4d5bb;
       outline: none;
     }
-  
+
     input:focus {
       border-color: #4fa57e;
     }
-  
+
     button {
       background-color: #4fa57e;
       color: white;
@@ -39,17 +39,18 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-  
+
     button:hover {
       background-color: #3e7d60;
     }
-  
+
     #output {
       margin-top: 30px;
       color: #2e6047;
       font-size: 16px;
+      display: none;
     }
-  
+
     code {
       background: #e5f5eb;
       padding: 6px 10px;
@@ -59,30 +60,44 @@
       font-family: monospace;
     }
   </style>
-  
 </head>
 <body>
-  <h1>カウントダウンURLを作ろう</h1>
+  <h1>🎀 カウントダウンURLを作ろう</h1>
   <input type="date" id="dateInput" />
-  <input type="text" id="titleInput" placeholder="タイトル（例：試験まで）" />
+  <input type="text" id="titleInput" placeholder="タイトル（例：テスト）" />
   <br />
   <button onclick="generateURL()">URLを作る</button>
-  <div id="output"></div>
+
+  <div id="output">
+    <p>⬇️ このURLをNotionに貼ってね！</p>
+    <code id="generatedUrl"></code><br>
+    <button onclick="copyToClipboard()">📋 コピーする</button>
+  </div>
 
   <script>
     function generateURL() {
       const date = document.getElementById("dateInput").value;
       const title = encodeURIComponent(document.getElementById("titleInput").value);
-      const baseUrl = "https://counter-widget-rouge.vercel.app"; // ← あなたのURLに置き換えてね！
+      const baseUrl = "https://your-project-name.vercel.app"; // ← あなたのURLに変更！
+
       if (!date) {
+        document.getElementById("output").style.display = "block";
         document.getElementById("output").innerHTML = "📅 日付を入力してね！";
         return;
       }
+
       const fullUrl = `${baseUrl}?date=${date}&title=${title}`;
-      document.getElementById("output").innerHTML = `
-        <p>⬇️ このURLをNotionに貼ってね！</p>
-        <code>${fullUrl}</code>
-      `;
+      document.getElementById("generatedUrl").textContent = fullUrl;
+      document.getElementById("output").style.display = "block";
+    }
+
+    function copyToClipboard() {
+      const text = document.getElementById("generatedUrl").textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("コピーしました！✨");
+      }).catch(err => {
+        alert("コピーに失敗しました…😢");
+      });
     }
   </script>
 </body>
